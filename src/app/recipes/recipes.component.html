@@ -6,13 +6,15 @@
       <div class="row">
           <div class="col-md-2">Search Recipes: </div>
           <div class="col-md-4">
-              <input type="text">
+              <input type="text"
+              [(ngModel)]='listFilter'>
           </div>
       </div>
       <div class="table-responsive">
           <table class="table">
               <thead>
                   <tr>
+                      <th></th>
                       <th> Recipe </th>
                       <th> Recipe Origon</th>
                   </tr>
@@ -21,7 +23,9 @@
                   <tr *ngFor="let recipe of recipes">
                       <td>
                         <img class="image"
-                        [src]="recipe.imageUrl">
+                        [src]="recipe.imageUrl"
+                        [style.width.px]="imageWidth"
+                        [style.margin.px]="2">
                       </td>
                       <td>{{recipe.recipeName}}</td>
                       <td>{{recipe.recipeOrigin}}</td>
