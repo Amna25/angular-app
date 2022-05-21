@@ -1,0 +1,17 @@
+[
+    {
+        "recipeId": 1,
+        "recipeName": "pasta",
+        "recipeDescription": "pasta with tomato sauce,chicken and herbs",
+        "ingredients": "pasta, chicken, tomato sauce, Cheese",
+        "recipeOrigin": "Italian",
+        "imageUrl": "assets/images/pasta.png"
+    },
+    {
+        "recipeId": 2,
+        "recipeName": "Fish And Chips",
+        "recipeDescription": "Bread coated fish with fried chips and sauce",
+        "ingredients": "Cod Fish Fillet, bread crumbs, potatoes",
+        "imageUrl": "assets/images/chip.png"
+    }
+]

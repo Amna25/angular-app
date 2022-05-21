@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="crad-header">
+        {{recipeTitle}}
+    </div>
+    <div class="card-boby">
+      <div class="row">
+          <div class="col-md-2">Search Recipes: </div>
+          <div class="col-md-4">
+              <input type="text">
+          </div>
+      </div>
+      <div class="table-responsive">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th> Recipe </th>
+                      <th> Recipe Origon</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let recipe of recipes">
+                      <td>
+                        <img class="image"
+                        [src]="recipe.imageUrl">
+                      </td>
+                      <td>{{recipe.recipeName}}</td>
+                      <td>{{recipe.recipeOrigin}}</td>
+                  </tr>
+              </tbody>
+
+          </table>
+
+      </div>
+    </div>
+    
+</div>
