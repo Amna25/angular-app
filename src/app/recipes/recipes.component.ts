@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IRecipe } from './recipe';
+import { RecipeService } from './recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -12,46 +13,31 @@ export class RecipesComponent implements OnInit {
   margin : number = 2;
   private _listFilter : string= '';
 
-  get listFilter(): string{
+  get listFilter(){
     return this._listFilter;
   }
 
   set listFilter(value: string){
     this._listFilter = value;
-    console.log("value is" + value);
+    console.log("value is " + value);
     this.filteredRecipes = this.provideFilterRecipes(value);
   }
 
   filteredRecipes: IRecipe[] = [];
-  recipes : IRecipe[] = [
-    {
-      recipeId: 1,
-      recipeName: "pasta",
-      recipeDescription: "pasta with tomato sauce,chicken and herbs",
-      ingredients: "pasta, chicken, tomato sauce, Cheese",
-      recipeOrigin: "Italian",
-      imageUrl: "assets/images/pasta.png"
-  },
-  {
-      recipeId: 2,
-      recipeName: "Fish And Chips",
-      recipeDescription: "Bread coated fish with fried chips and sauce",
-      ingredients: "Cod Fish Fillet, bread crumbs, potatoes",
-      recipeOrigin: "British",
-      imageUrl: "assets/images/chip.png"
-  }
-  ];
+  recipes : IRecipe[] = [];
+  
 
-  constructor() { }
+  constructor(private recipeService : RecipeService) { }
 
   ngOnInit(): void {
-    
+    this.recipes = this.recipeService.getRecipes();
+    this.filteredRecipes = this.recipes;
   }
 
   provideFilterRecipes(filterBy : string): IRecipe[]{
     filterBy = filterBy.toLocaleLowerCase();
     return this.recipes.filter((recipe : IRecipe) => 
-      recipe.recipeName.toLocaleLowerCase().includes(filterBy))
+      recipe.recipeName.toLocaleLowerCase().includes(filterBy));
   }
 
 }
