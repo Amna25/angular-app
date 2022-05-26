@@ -1,5 +1,5 @@
-import { HttpClient, HttpClientModule, JsonpClientBackend } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ErrorHandler, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { IRecipe } from './recipe';
 
@@ -13,7 +13,8 @@ export class RecipeService {
 
   getRecipes(): Observable<IRecipe[]> {
     return this.http.get<IRecipe[]>(this.recipeUrl).pipe(
-      tap(data => (console.log("All: " + JSON.stringify(data))))
+      tap(data => (console.log("All: " + JSON.stringify(data)))),
+      err => err
     );
   }
 

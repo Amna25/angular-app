@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { IRecipe } from './recipe';
 import { RecipeService } from './recipe.service';
 
@@ -12,6 +13,7 @@ export class RecipesComponent implements OnInit {
   imageWidth : number = 50;
   margin : number = 2;
   private _listFilter : string= '';
+  sub! : Subscription;
 
   get listFilter(){
     return this._listFilter;
@@ -30,8 +32,12 @@ export class RecipesComponent implements OnInit {
   constructor(private recipeService : RecipeService) { }
 
   ngOnInit(): void {
-    this.recipes = this.recipeService.getRecipes();
-    this.filteredRecipes = this.recipes;
+    this.recipeService.getRecipes().subscribe({
+      next : recipes => {
+        this.recipes = recipes;
+        this.filteredRecipes = this.recipes;
+      }
+    });
   }
 
   provideFilterRecipes(filterBy : string): IRecipe[]{
