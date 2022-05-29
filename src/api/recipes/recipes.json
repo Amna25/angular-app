@@ -12,6 +12,24 @@
         "recipeName": "Fish And Chips",
         "recipeDescription": "Bread coated fish with fried chips and sauce",
         "ingredients": "Cod Fish Fillet, bread crumbs, potatoes",
+        "recipeOrigin": "Britain",
         "imageUrl": "assets/images/chip.png"
+    },
+    {
+        "recipeId": 3,
+        "recipeName": "Steaks",
+        "recipeDescription": "Delicious Meat Steaks",
+        "ingredients": "Herbs Meat and roasted Potatoes",
+        "recipeOrigin": "English",
+        "imageUrl": "assets/images/steak.png"
+    },
+    {
+        "recipeId": 4,
+        "recipeName": "Chicken Rice",
+        "recipeDescription": "Delicious Baryani",
+        "ingredients": "Spicy herbs rice and chicken",
+        "recipeOrigin": "Asian",
+        "imageUrl": "assets/images/rice.png"
+
     }
 ]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IRecipe } from './recipe';
 import { RecipeService } from './recipe.service';
@@ -10,7 +11,7 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
   recipeTitle : string = 'Recipe List';
-  imageWidth : number = 50;
+  imageWidth : number = 80;
   margin : number = 2;
   private _listFilter : string= '';
   sub! : Subscription;

@@ -27,7 +27,10 @@
                         [style.width.px]="imageWidth"
                         [style.margin.px]="2">
                       </td>
-                      <td>{{recipe.recipeName}}</td>
+                      <a [routerLink]="['recipe.recipeId']">
+                          {{recipe.recipeName}}
+                      </a>
+                    
                       <td>{{recipe.recipeOrigin}}</td>
                   </tr>
               </tbody>
